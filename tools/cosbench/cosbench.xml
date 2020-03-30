@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="write-1kb" description="1kb pure writes">
+<storage type="s3" config="accesskey=alluxio;secretkey=alluxio;endpoint=http://20.20.201.5:8080" />
+ 
+  <workflow>
+  
+<!--注释内容######################## 
+    <workstage name="init">
+          <work name="init" type="init" workers="1" interval="10"
+                division="container" runtime="0" rampup="0" rampdown="0"
+                config="cprefix=fxl2;containers=r(1,1)">
+                <auth type="none" config=""/>
+                <storage type="s3" config="accesskey=LK8OVJTCFHXPT9LZDX53;secretkey=TyRbgZKBFqTGlu2bo8Me2AXgT9Bl3PGfBxgekPbH;endpoint=http://192.168.242.211:7480"/>
+                <operation type="init" ratio="100" division="container"
+                    config="cprefix=fxl2;containers=r(1,1);objects=r(0,0);sizes=c(0)B;" id="none"/>
+		  </work>
+    </workstage>
+########################-->
+ 
+    <workstage name="WriteJob">
+          <work name="211" type="write" workers="50" interval="10"
+          		division="object" runtime="1800" rampup="0" rampdown="0"
+          		config="oprefix=bb;containers=alluxio;objects=r(1,100);sizes=c(1)KB">
+                <auth type="none" config=""/>
+                  <storage type="s3" config="accesskey=alluxio;secretkey=alluxio;endpoint=http://20.20.201.5:8080"/>
+                  <operation type="write" ratio="100" division="object"
+                    config="oprefix=bb;containers=alluxio;objects=r(1,100);sizes=c(1)KB;createContainer=false;" 
+                    	id="none" />
+          </work>
+    </workstage>
+ 
+	
+<!--注释内容######################## 
+	 <workstage name="cleanup" closuredelay="0" config="">
+		<work name="cleanup" type="cleanup" workers="2" interval="10"
+			division="object" runtime="0" rampup="0" rampdown="0"
+			config="cprefix=fxl;containers=r(1,200);objects=r(1,1000);">
+			<auth type="none" config=""/>
+			<storage type="s3" config="accesskey=LK8OVJTCFHXPT9LZDX53;secretkey=TyRbgZKBFqTGlu2bo8Me2AXgT9Bl3PGfBxgekPbH;endpoint=http://192.168.242.211:7480"/>
+			<operation type="cleanup" ratio="100" division="object"
+				config="cprefix=fxl;containers=r(1,200);objects=r(1,1000);deleteContainer=false;" id="none"/>
+		</work>
+	</workstage>
+	
+	<workstage name="dispose" closuredelay="0" config="">
+		<work name="dispose" type="dispose" workers="2" interval="10"
+			division="container" runtime="0" rampup="0" rampdown="0"
+			config="cprefix=mycontainers;containers=r(1,200);">
+			<auth type="none" config=""/>
+			<storage type="s3" config="accesskey=LK8OVJTCFHXPT9LZDX53;secretkey=TyRbgZKBFqTGlu2bo8Me2AXgT9Bl3PGfBxgekPbH;endpoint=http://192.168.242.211:7480"/>
+			<operation type="dispose" ratio="100"
+				division="container"
+				config="cprefix=mycontainers;containers=r(1,200);objects=r(0,0);sizes=c(0)B;" id="none"/>
+		</work>
+	</workstage>
+########################-->
+ 
+  </workflow>
+</workload>

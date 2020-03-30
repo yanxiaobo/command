@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="mos-w-4m" config="">
+    <workflow config="">
+        <workstage name="s3test_8M_write_x100000">
+            <work name="read" workers="5" runtime="1800" driver="driver1">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.51:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_51_5_80%3_0/20200101/NRS_10_10_123_51_11166/vod1-0%1-0.z-mv;objects=u(105000000,105009000);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver2">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.52:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_52_5_80%3_0/20200101/NRS_10_10_123_52_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver3">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.53:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_53_5_80%3_0/20200101/NRS_10_10_123_53_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver4">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.54:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_54_5_80%3_0/20200101/NRS_10_10_123_54_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver5">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.55:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_55_5_80%3_0/20200101/NRS_10_10_123_55_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver6">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.56:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_56_5_80%3_0/20200101/NRS_10_10_123_56_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver7">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.57:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_57_5_80%3_0/20200101/NRS_10_10_123_57_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver8">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.58:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_58_5_80%3_0/20200101/NRS_10_10_123_58_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver9">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.59:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_59_5_80%3_0/20200101/NRS_10_10_123_59_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+            <work name="read" workers="5" runtime="1800" driver="driver10">
+                <storage type="s3" config="accesskey=moss;secretkey=moss;endpoint=http://172.26.123.60:8080"/>
+                <operation type="read" ratio="100" 
+                    config="cprefix=data;containers=r(2,2);oprefix=rcd1/av%172_123_60_5_80%3_0/20200101/NRS_10_10_123_60_11166/vod1-0%1-0.z-mv;objects=r(105000000,105009900);sizes=c(4096)KB" id="op1"/>
+            </work>
+        </workstage>
+    </workflow>
+</workload>
